@@ -5,13 +5,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const path = require('path');
-
-// Import routes
-const postRoutes = require('./routes/posts');
-const categoryRoutes = require('./routes/categories');
-const authRoutes = require('./routes/auth');
-
+const postRoutes = require("./routes/postRoutes");
 // Load environment variables
 dotenv.config();
 
@@ -24,8 +18,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve uploaded files
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 // Log requests in development mode
 if (process.env.NODE_ENV === 'development') {
@@ -37,8 +30,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // API routes
 app.use('/api/posts', postRoutes);
-app.use('/api/categories', categoryRoutes);
-app.use('/api/auth', authRoutes);
+// app.use('/api/auth', authRoutes);
 
 // Root route
 app.get('/', (req, res) => {

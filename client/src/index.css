@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme{
+  --font-script: "Cardo", serif;
+}
+
+@layer base{
+  body{
+    font-family: var(--font-script);
+  }
+}
+
+
